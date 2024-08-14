@@ -74,24 +74,7 @@ class DocumentController extends Controller
         // Assuming you have a model named `YourModel` and it matches the CSV columns
         Document::create($data);
     }
-
-    protected function processCsv($path)
-    {
-        $fullPath = storage_path('app/' . $path); // Get the full path to the file
-
-        if (($handle = fopen($fullPath, 'r')) !== FALSE) {
-            // Read the file line by line
-            while (($data = fgetcsv($handle, 1000, ',')) !== FALSE) {
-                // Process each row
-                // $data is an array of columns
-                // Example: $data[0], $data[1], etc.
-            }
-            fclose($handle);
-        }
-
-        // Optionally delete the file after processing
-        // unlink($fullPath);
-    }
+    
 
 
     /**
